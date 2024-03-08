@@ -2,7 +2,7 @@
   "name": "nodejs-app",
   "version": "1.0.0",
   "description": "A minimal Node.js web application.",
-  "main": "index.js",
+  "index": "index.js",
   "author": "alphasec",
   "license": "MIT",
   "dependencies": {
