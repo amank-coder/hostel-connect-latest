@@ -24,7 +24,7 @@ const Login = () => {
         }
         dispatch(showLoading());
 
-        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`,{
+        const { data } = await axios.post(`http://hostel-lb-3-1206073934.ap-south-1.elb.amazonaws.com`,{
           email, password
 
         })
