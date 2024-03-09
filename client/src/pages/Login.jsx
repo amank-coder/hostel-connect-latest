@@ -24,7 +24,7 @@ const Login = () => {
         }
         dispatch(showLoading());
 
-        const { data } = await axios.post(`/api/auth/login`,{
+        const { data } = await axios.post(`${process.env.API_URL}/api/auth/login`,{
           email, password
 
         })

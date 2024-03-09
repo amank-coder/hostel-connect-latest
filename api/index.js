@@ -14,7 +14,7 @@ const staffRoute= require('./routes/staffRoute')
 const complaintRoute= require('./routes/complaintRoute')
 const route= require('./routes/route')
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 
 const app= express()
 
@@ -40,7 +40,7 @@ const options = {
         url: "http://localhost:8000" // Local development server
       },
       {
-        url: "http://hostel-lb-3-1206073934.ap-south-1.elb.amazonaws.com" // ECS load balancer URL
+        url: "https://hostel-connect-latest-backend.vercel.app" // ECS load balancer URL
       }
     ]
   },
