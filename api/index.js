@@ -41,7 +41,7 @@ const options = {
         url: "http://localhost:8000" // Local development server
       },
       {
-        url: "https://nodejs-production-c85b.up.railway.app" // ECS load balancer URL
+        url: "https://nodejs-production-c85b.up.railway.app" 
       }
     ]
   },
