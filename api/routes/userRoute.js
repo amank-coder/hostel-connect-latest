@@ -85,5 +85,6 @@ const userController = require('../controller/userController')
 // router.delete('/delete/:id', middle.verifyToken, userController.deleteUser)
 router.get('/' ,userAuth, isAdmin, userController.getUsers)
 // router.put('/users',userAuth, userController.deleteUser)
+router.post('/getUser', userAuth, userController.getUserController)
 
 module.exports= router
