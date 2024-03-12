@@ -33,6 +33,8 @@ const Login = () => {
         console.log(data)
         if(data.success)
         {
+          dispatch(hideLoading());
+          localStorage.setItem("token", data.token);
           alert("Login successful");
           navigate("/dashboard");
         }
