@@ -13,7 +13,7 @@ const PrivateRoute = ({children}) => {
     const getUser = async()=>{
         try{
             dispatch(showLoading());
-            const { data } = axios.post(`${import.meta.env.VITE_API_URL}/api/user/getUser`,
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/getUser`,
             {
                 token: localStorage.getItem('token')
             },{
@@ -22,7 +22,7 @@ const PrivateRoute = ({children}) => {
                 }
             })
             dispatch(hideLoading())
-            if(data.success)
+            if(data?.success)
             {
                 dispatch(setUser(data.data));
             }
