@@ -6,6 +6,7 @@ import { hideLoading, showLoading } from '../redux/features/alertSlice';
 import axios from 'axios';
 
 const Login = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,9 +32,10 @@ const Login = () => {
         dispatch(hideLoading());
 
         console.log(data)
-        if(data.success)
+        if(data?.success)
         {
           dispatch(hideLoading());
+          console.log(data)
           localStorage.setItem("token", data.token);
           alert("Login successful");
           navigate("/dashboard");
@@ -87,9 +89,6 @@ const Login = () => {
           <p className='text-center mt-4 cursor-pointer underline p-0' >Go to home page</p>
           </div>
         </div>
-
-
-        
       </div>
     </div>
       )
