@@ -1,11 +1,13 @@
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
 import { useContext, createContext, useState } from "react"
 import { useSelector } from 'react-redux';
+import Logout from './Logout';
 
 const SidebarContext = createContext()
 
 export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(true)
+  const [logout, setLogout] = useState(false);
   const { user } = useSelector((state)=>state.auth);
   console.log(user)
 
@@ -40,14 +42,20 @@ export default function Sidebar({ children }) {
           <div
             className={`
               flex justify-between items-center
-              overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}
+               transition-all ${expanded ? "w-52 ml-3" : "w-0"}
           `}
           >
             <div className="leading-4">
               <h4 className="font-semibold">{user?.name}</h4>
               <span className="text-xs text-gray-600">{user?.email}</span>
             </div>
-            <MoreVertical size={20} />
+            <div className={`${!logout ? 'hidden' : 'block'} relative left-20 bottom-8`}>
+              <Logout />
+            </div>
+            <div className="hover:bg-gray-200 rounded-md cursor-pointer p-2" onClick={()=>setLogout(!logout)}>
+              <MoreVertical size={20} />
+            </div>
+            
           </div>
         </div>
       </nav>

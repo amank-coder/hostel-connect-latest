@@ -31,8 +31,18 @@ function App() {
               <Dashboard />
           </PrivateRoute>
         }/>
-        <Route exact path='/complaint' element={<Complaint />}/>
-        <Route exact path='/suggestions' element={<Suggestions />}/>
+        <Route exact path='/complaint' 
+        element={
+          <PrivateRoute>
+            <Complaint />
+          </PrivateRoute>
+          }/>
+        <Route exact path='/suggestions' 
+          element={
+            <PrivateRoute>
+              <Suggestions />
+            </PrivateRoute>
+          }/>
         <Route exact path='*' element={<NotFound />} />
       </Routes>
     </>
