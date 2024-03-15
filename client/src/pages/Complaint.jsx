@@ -14,10 +14,10 @@ const Complaint = () => {
 
   console.log(timing)
 
-  const handleSubmit = async()=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
-      const res = await axios.post(
+      const { data } = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/complaint`,{
           roomno: user?.roomno,
           category: type,
@@ -32,7 +32,11 @@ const Complaint = () => {
           },
         }
       );
-      console.log(res)
+      console.log(data)
+      if(data.message=="Complaint Created")
+      {
+        alert("Complaint created successfully");
+      }
     }catch(error)
     {
       console.log(error);
