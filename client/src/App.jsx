@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import Complaint from './pages/Complaint';
 import Suggestions from './pages/Suggestions';
 import PrivateRoute from './components/routes/PrivateRoute';
+import PublicRoute from './components/routes/PublicRoute';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,8 +15,16 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/login' element={<Login/>}/>
+        <Route exact path='/' element={
+          <PublicRoute>
+            <Home />
+          </PublicRoute>
+        } />
+        <Route exact path='/login' element={          
+        <PublicRoute>
+          <Login/>
+        </PublicRoute>
+        }/>
         <Route exact path='/dashboard' 
         element={
           <PrivateRoute>

@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../components/layout/Layout'
 
 const Suggestions = () => {
   return (
-    <div>Suggestions</div>
+    <Layout>
+      Suggestions
+    </Layout>
   )
 }
 
