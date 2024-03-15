@@ -1,55 +1,78 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/layout/Layout'
+import { useSelector } from "react-redux";
+import axios from "axios";
+
 
 const Complaint = () => {
+  const { user } = useSelector(state=>state.auth)
+  console.log(user)
+
+  const [type, setType] = useState("");
+  const [timing, setTiming] = useState("");
+  const [message, setMessage] = useState("");
+
+  console.log(timing)
+
+  const handleSubmit = async()=>{
+    e.preventDefault();
+    try{
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/complaint`,{
+          roomno: user?.roomno,
+          category: type,
+          timing: timing,
+          regno: user.regno,
+          message: message,
+          block: user.block
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      console.log(res)
+    }catch(error)
+    {
+      console.log(error);
+    }
+  }
+  
   return (
     <Layout>
-        
-        <div className="mx-auto flex h-[100vh] bg-[#060a20]">
-
-          <div className="bg-[#060a20] w-full p-12">
-          <h1 className=" pt-2 pl-6 mb-8 font-bold text-3xl text-center text-white">AC COMPLAINT</h1>
-
-            <form className="border-black-100 px-4 mt-8 text-white">
-              <p className="text-2xl mb-3" htmlFor="">
-                Timing
-              </p>
-              <select className="py-2 block appearance-none w-full bg-[#090e2f] border border-gray-400 hover:border-gray-500 px-4 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" onChange={(e)=>setTiming(e.target.value)}>
-                <option className=" py-4 mb-2 text-gray-300">
-                  select time
-                </option>
-                <option>6:00 am - 8:00 am</option>
-                <option>12:00 am - 2:00 am</option>
-                <option>5:00 am - 7:00 am</option>
+      <div className='flex justify-center items-center w-[100vw] h-[100vh]'>
+      <div className='max-w-md w-full mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
+          <h2 className='text-3xl text-center font-bold mb-6'>Complaint</h2>
+          <form onSubmit={handleSubmit}>
+            <div className='mb-4'>
+              <label className="font-semibold mb-2 text-sm" htmlFor="type">Type</label>
+              <select type="text" placeholder='Complaint type ...' className='w-full px-3 py-2 border rounded-lg bg-gray-200 focus:border-blue-500 focus:outline-none' required onChange={(e)=>setType(e.target.value)}>
+                <option>Cleaning</option>
+                <option>Electrical</option>
+                <option>Carpentry</option>
               </select>
-              <p className=" py-2 mt-1 text-2xl mb-3" htmlFor="">
-                Message
-              </p>
-              <input
-                name="message"
-                type="text"
-                placeholder="message"
-                className="px-4 py-2 border-b-2 w-full outline-none bg-[#090e2f]"
-              ></input>
-              <p className=" py-2 mt-1 text-2xl mb-3" htmlFor="">
-                Room no.
-              </p>
-              <input
-                name="roomno"
-                type="text"
-                placeholder="room"
-                className="px-4 py-2 border-b-2 w-full outline-none bg-[#090e2f]"
-              ></input>
-              <button
-                className=" btn btn-lg bg-sky-600 hover:bg-sky-700 rounded-md text-white text-center p-2 w-full mt-4"
-                type="submit"
-             
-              >
-                Submit
-              </button>
-            </form>
-          </div>
+            </div>
+            <div className='mb-4'>
+              <label className="font-semibold mb-2 text-sm" htmlFor="timing">Timing</label>
+              <select type="text" placeholder='Timing...' className='w-full px-3 py-2 border rounded-lg bg-gray-200 focus:border-blue-500 focus:outline-none' required onChange={(e)=>setTiming(e.target.value)}>
+                <option>9:00am-1:00pm</option>
+                <option>2:00pm-4:00pm</option>
+                <option>6:00pm-8:00pm</option>
+              </select>
+            </div>
+            <div className='mb-4'>
+              <label className="font-semibold mb-2 text-sm" htmlFor="message">Message</label>
+              <input type="text" placeholder='Type your message ...' className='w-full px-3 py-2 border rounded-lg bg-gray-200 focus:border-blue-500 focus:outline-none' required onChange={(e)=>setMessage(e.target.value)}/>
+            </div>
+            <div className="flex justify-center">
+              <button type="submit" className="bg-blue-500 px-4 py-2 rounded-lg font-semibold text-white hover:bg-blue-600 focus:outline-white">Submit</button>
+            </div>
+          </form>
         </div>
+      </div>
+        
+        
     </Layout>
   )
 }

@@ -41,7 +41,7 @@ const options = {
         url: "http://localhost:8000" // Local development server
       },
       {
-        url: "https://nodejs-production-c85b.up.railway.app" 
+        url: "https://nodejs-production-37b9.up.railway.app" 
       }
     ]
   },
