@@ -1,7 +1,6 @@
 import React from 'react'
 import Sidebar, { SidebarItem } from '../Sidebar'
-import { ChevronFirst, ChevronLast, Frown, LayoutDashboard, Sparkles } from 'lucide-react';
-import { MoreVertical } from 'lucide-react';
+import { Frown, LayoutDashboard, Sparkles } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 
 
