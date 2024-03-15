@@ -6,6 +6,7 @@ const Home = () => {
   },[])
   return (
     <div>
+      <div>Home</div>
       <a href='/login' >login</a>
     </div>
 
