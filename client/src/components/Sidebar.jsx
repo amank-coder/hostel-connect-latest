@@ -12,7 +12,7 @@ export default function Sidebar({ children }) {
   console.log(user)
 
   return (
-    <aside className="h-screen">
+    <aside className="h-screen fixed">
       <nav className="h-full flex flex-col bg-white border-r shadow-sm">
         <div className="p-4 pb-2 flex justify-between items-center">
           <img
@@ -42,7 +42,7 @@ export default function Sidebar({ children }) {
           <div
             className={`
               flex justify-between items-center
-               transition-all ${expanded ? "w-52 ml-3" : "w-0"}
+               transition-all ${expanded ? "w-52 ml-3" : "hidden"}
           `}
           >
             <div className="leading-4">

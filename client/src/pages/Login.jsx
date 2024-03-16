@@ -37,8 +37,9 @@ const Login = () => {
           dispatch(hideLoading());
           console.log(data)
           localStorage.setItem("token", data.token);
+          localStorage.setItem("user",JSON.stringify(data.user))
           alert("Login successful");
-          navigate("/dashboard");
+          data.user.isAdmin ? navigate("/admin-dashboard") : navigate("/dashboard");
         }
       }catch(err)
       {

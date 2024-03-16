@@ -20,6 +20,7 @@ exports.getComplaints = async (req, res, next) => {
   const q = req.query;
   const filters = {
     ...(q.block && { block: q.block }),
+    ...(q.roomno && { roomno: q.roomno }),
   };
   try {
     const complaints = await Complaint.find(filters);

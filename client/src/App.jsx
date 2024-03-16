@@ -8,22 +8,26 @@ import Complaint from './pages/Complaint';
 import Suggestions from './pages/Suggestions';
 import PrivateRoute from './components/routes/PrivateRoute';
 import PublicRoute from './components/routes/PublicRoute';
+import AdminRoute from './components/routes/AdminRoute'
+import AdminDashboard from './pages/AdminDashboard';
+import ComplaintList from './pages/ComplaintList';
+import Students from './pages/Students';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
       <Routes>
         <Route exact path='/' element={
-          <PublicRoute>
+            <PublicRoute>
             <Home />
-          </PublicRoute>
+            </PublicRoute>
         } />
         <Route exact path='/login' element={          
-        <PublicRoute>
+          <PublicRoute>
           <Login/>
-        </PublicRoute>
+          </PublicRoute>
         }/>
         <Route exact path='/dashboard' 
         element={
@@ -43,6 +47,14 @@ function App() {
               <Suggestions />
             </PrivateRoute>
           }/>
+          <Route exact path='/admin-dashboard' 
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }/>
+          <Route exact path='/complaint-list' element={<ComplaintList />} />
+          <Route exact path='/students' element={<Students />} />
         <Route exact path='*' element={<NotFound />} />
       </Routes>
     </>

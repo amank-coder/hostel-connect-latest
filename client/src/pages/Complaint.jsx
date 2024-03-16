@@ -45,8 +45,8 @@ const Complaint = () => {
   
   return (
     <Layout>
-      <div className='flex justify-center items-center w-[100vw] h-[100vh]'>
-      <div className='max-w-md w-full mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
+    <div className='flex h-screen'>
+    <div className='md:max-w-md max-w-72 w-full h-96 my-8 md:mx-auto p-6 bg-gray-100 rounded-lg shadow-md md:my-auto'>
           <h2 className='text-3xl text-center font-bold mb-6'>Complaint</h2>
           <form onSubmit={handleSubmit}>
             <div className='mb-4'>
@@ -73,9 +73,8 @@ const Complaint = () => {
               <button type="submit" className="bg-blue-500 px-4 py-2 rounded-lg font-semibold text-white hover:bg-blue-600 focus:outline-white">Submit</button>
             </div>
           </form>
-        </div>
       </div>
-        
+    </div>
         
     </Layout>
   )
