@@ -8,8 +8,8 @@ const Complaint = () => {
   const { user } = useSelector(state=>state.auth)
   console.log(user)
 
-  const [type, setType] = useState("");
-  const [timing, setTiming] = useState("");
+  const [type, setType] = useState("Cleaning");
+  const [timing, setTiming] = useState("9:00am-1:00pm");
   const [message, setMessage] = useState("");
 
   console.log(timing)
@@ -51,7 +51,10 @@ const Complaint = () => {
           <form onSubmit={handleSubmit}>
             <div className='mb-4'>
               <label className="font-semibold mb-2 text-sm" htmlFor="type">Type</label>
-              <select type="text" placeholder='Complaint type ...' className='w-full px-3 py-2 border rounded-lg bg-gray-200 focus:border-blue-500 focus:outline-none' required onChange={(e)=>setType(e.target.value)}>
+              <select type="text" placeholder='Complaint type ...' className='w-full px-3 py-2 border rounded-lg bg-gray-200 focus:border-blue-500 focus:outline-none' required onChange={(e)=>{
+                setType(e.target.value)
+                console.log("type",type);
+                }}>
                 <option>Cleaning</option>
                 <option>Electrical</option>
                 <option>Carpentry</option>
