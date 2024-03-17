@@ -53,7 +53,11 @@ function App() {
               <AdminDashboard />
             </AdminRoute>
           }/>
-          <Route exact path='/complaint-list' element={<ComplaintList />} />
+          <Route exact path='/complaint-list' element={
+          <AdminRoute>
+              <ComplaintList />
+            </AdminRoute>
+          } />
           <Route exact path='/students' element={<Students />} />
         <Route exact path='*' element={<NotFound />} />
       </Routes>

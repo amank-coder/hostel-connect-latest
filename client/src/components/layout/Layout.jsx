@@ -21,7 +21,7 @@ const Layout = ({children}) => {
               <SidebarItem text="Complaints"  icon={<Frown />} active={path=='/complaint-list'} link='/complaint-list' />
               <SidebarItem text="Students"  icon={<Sparkles />} active={path=='/students'} link='/students' />
           </Sidebar>
-          <div className='w-full ml-20 md:ml-40'>{children}</div>
+          <div className='w-full ml-20 md:ml-[20rem] overflow-x-auto'>{children}</div>
           </div>
         ) : (
           <div className='flex'>
