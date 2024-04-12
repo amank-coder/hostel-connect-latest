@@ -18,9 +18,11 @@ exports.createComplaint = async (req, res, next) => {
 
 exports.getComplaints = async (req, res, next) => {
   const q = req.query;
+  console.log("query",q);
   const filters = {
     ...(q.block && { block: q.block }),
     ...(q.roomno && { roomno: q.roomno }),
+    ...(q.category && { category: q.category }),
   };
   try {
     const complaints = await Complaint.find(filters);
