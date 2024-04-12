@@ -12,7 +12,7 @@ const Home = () => {
           <img src='/logo.png' className='w-28'/>
         </div>
         <div>
-          <button className='bg-blue-400 hover:bg-blue-500 text-white p-2 px-4 rounded-md'>Login</button>
+          <a href='/login'><button className='bg-blue-400 hover:bg-blue-500 text-white p-2 px-4 rounded-md'>Login</button></a>
         </div>
       </nav>
 
