@@ -1,8 +1,10 @@
 **HostelConnect**
+
 HostelConnect is a web-based platform designed to streamline the process for hostel students to manage complaints and service requests. Students can easily raise complaints, track their status, and provide feedback, while admins have the ability to view and update complaint statuses. The platform ensures efficient communication by sending email notifications to students for status updates.
 
 **Features
 **
+
 Student Portal:
 
 Raise and submit complaints or service requests.
@@ -17,6 +19,7 @@ Automatic email notifications sent to students for status updates.
 Students must confirm the status update via email to finalize the change.
 
 **Technologies Used**
+
 Frontend: React.js, Tailwind CSS
 Backend: Node.js, Express.js
 Database: MongoDB
@@ -24,10 +27,11 @@ Email Service: Nodemailer
 
 **Running the Project
 **
+
 Setup
 Clone the repository:
 
-git clone https://github.com/your-username/hostel-connect.git
+git clone https://github.com/amank-coder/hostel-connect-latest.git
 cd hostel-connect
 
 Setup the frontend:
