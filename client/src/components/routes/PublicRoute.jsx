@@ -3,7 +3,10 @@ import { Navigate } from 'react-router-dom'
 
 const PublicRoute = ({children}) => {
   const token = localStorage.getItem("token")
-  const user = JSON.parse(localStorage.getItem("user"))
+  const user = localStorage.getItem("user")
+  if(user){
+    user = JSON.parse(user)
+  }
   return token ? user?.isAdmin ? <Navigate to="/admin-dashboard" /> : <Navigate to="/dashboard" /> : children;
 }
 

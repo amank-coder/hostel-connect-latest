@@ -14,7 +14,7 @@ const staffRoute= require('./routes/staffRoute')
 const complaintRoute= require('./routes/complaintRoute')
 const route= require('./routes/route')
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const app= express()
 
@@ -41,7 +41,7 @@ const options = {
         url: "http://localhost:8000" // Local development server
       },
       {
-        url: "http://localhost:3000"
+        url: "http://localhost:3001"
  
       }
     ]
