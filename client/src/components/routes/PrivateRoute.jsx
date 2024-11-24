@@ -66,7 +66,7 @@ const PrivateRoute = ({ children }) => {
     }
   });
     const token = localStorage.getItem("token")
-    const u = localStorage.getItem("user")
+    let u = localStorage.getItem("user")
     if(u){
       u = JSON.parse(u)
     }    return token && !u?.isAdmin ? children : <Navigate to="/" />;

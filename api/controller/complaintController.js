@@ -1,5 +1,6 @@
 const Complaint = require('../models/complaintModel');
 const mongoose = require('mongoose');
+const { sendMail } = require('../middleware/sendMail');
 
 exports.createComplaint = async (req, res, next) => {
   try {
@@ -32,6 +33,46 @@ exports.getComplaints = async (req, res, next) => {
   }
 };
 
+exports.sendEmail = async (req, res) => {
+  try {
+    const { complaintId } = req.body;
+    console.log(complaintId)
+    // Find the complaint by complaintId and populate the userId to get the user details
+    let complaint = await Complaint.findById(complaintId).populate('userId'); // Ensure userId is populated
+
+    if (!complaint) {
+      return res.status(404).json({
+        message: "Complaint not found!",
+      });
+    }
+
+    const user = complaint.userId; // Access the populated user object
+
+    if (!user) {
+      return res.status(400).json({
+        message: "No user associated with this complaint",
+      });
+    }
+
+    const email = user.email; // Get the email from the populated user
+
+    // Prepare email data and send it
+
+    // Send the email
+    await sendMail(email, "Hostel Connect", complaintId, email);
+
+    // Respond with a success message
+    res.status(200).json({
+      message: "Verification link sent to your email!",
+    });
+
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
 
 exports.updateStatus = async(req, res, next)=>{
     try {

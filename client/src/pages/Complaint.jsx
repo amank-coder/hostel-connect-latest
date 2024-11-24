@@ -24,7 +24,8 @@ const Complaint = () => {
           timing: timing,
           regno: user.regno,
           message: message,
-          block: user.block
+          block: user.block,
+          userId: user?._id
         },
         {
           headers: {

@@ -4,7 +4,6 @@ import { fadeIn } from '../components/variants';
 import Footer from '../components/Footer';
 
 const Home = () => {
-  // Framer Motion Animation Variants for Cards
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },

@@ -12,6 +12,8 @@ import AdminRoute from './components/routes/AdminRoute'
 import AdminDashboard from './pages/AdminDashboard';
 import ComplaintList from './pages/ComplaintList';
 import Students from './pages/Students';
+import Profile from './pages/Profile';
+import VerifyComplaint from './pages/VerifyComplaint';
 
 function App() {
   
@@ -47,6 +49,12 @@ function App() {
               <Suggestions />
             </PrivateRoute>
           }/>
+          <Route exact path='/my-profile' 
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }/>
           <Route exact path='/admin-dashboard' 
           element={
             <AdminRoute>
@@ -58,7 +66,12 @@ function App() {
               <ComplaintList />
             </AdminRoute>
           } />
-          <Route exact path='/students' element={<Students />} />
+          <Route exact path='/students' element={
+            <AdminRoute>
+              <Students />
+            </AdminRoute>
+            } />
+          <Route exact path='/verify-complaint' element={<VerifyComplaint />} />
         <Route exact path='*' element={<NotFound />} />
       </Routes>
     </>

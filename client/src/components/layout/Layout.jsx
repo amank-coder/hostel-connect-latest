@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar, { SidebarItem } from '../Sidebar'
-import { Frown, LayoutDashboard, Sparkles } from 'lucide-react';
+import { Frown, LayoutDashboard, Sparkles, UserCircle } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -29,6 +29,7 @@ const Layout = ({children}) => {
               <SidebarItem text="Home"  icon={<LayoutDashboard />} active={path=='/dashboard'} link='/dashboard'/>
               <SidebarItem text="Complaints"  icon={<Frown />} active={path=='/complaint'} link='/complaint' />
               <SidebarItem text="Suggestions"  icon={<Sparkles />} active={path=='/suggestions'} link='/suggestions' />
+              <SidebarItem text="My Profile"  icon={<UserCircle />} active={path=='/my-profile'} link='/my-profile' />
               </Sidebar>
           <div className='w-full ml-20 md:ml-72'>{children}</div>
           </div>

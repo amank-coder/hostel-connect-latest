@@ -62,7 +62,7 @@ const Login = () => {
       ) : (
         <div
           className="bg-cover bg-center min-h-screen flex items-center justify-center"
-          style={{ backgroundImage: `url('https://media-cdn.tripadvisor.com/media/photo-s/01/af/e5/8b/corridor.jpg')` }}
+          style={{ backgroundImage: `url('https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg')` }}
         >
           <div className="bg-[rgba(255,255,255,0.78)] backdrop-blur-md p-8 rounded-md shadow-lg shadow-blue-200 w-full max-w-md md:max-w-lg">
             <h1 className="text-2xl font-bold pb-8 text-center">Login</h1>
@@ -93,8 +93,7 @@ const Login = () => {
               </button>
             </form>
             <div className="flex justify-between mt-4">
-              <p className="cursor-pointer hover:text-sky-800">Forgot Password</p>
-              <p className="cursor-pointer underline">Go to home page</p>
+              <p className="cursor-pointer underline ml-4">Go to home page</p>
             </div>
           </div>
         </div>

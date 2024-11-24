@@ -6,7 +6,7 @@ import Logout from './Logout';
 const SidebarContext = createContext()
 
 export default function Sidebar({ children }) {
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(() => window.innerWidth >= 768);
   const [logout, setLogout] = useState(false);
   const { user } = useSelector((state)=>state.auth);
   console.log(user)
@@ -34,11 +34,6 @@ export default function Sidebar({ children }) {
         </SidebarContext.Provider>
 
         <div className="border-t flex p-3">
-          <img
-            src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
-            alt=""
-            className="w-10 h-10 rounded-md"
-          />
           <div
             className={`
               flex justify-between items-center
@@ -49,7 +44,7 @@ export default function Sidebar({ children }) {
               <h4 className="font-semibold">{user?.name}</h4>
               <span className="text-xs text-gray-600">{user?.email}</span>
             </div>
-            <div className={`${!logout ? 'hidden' : 'block'} relative left-20 bottom-8`}>
+            <div className={`${!logout ? 'hidden' : 'block'} fixed left-60 bottom-8 z-30`}>
               <Logout />
             </div>
             <div className="hover:bg-gray-200 rounded-md cursor-pointer p-2" onClick={()=>setLogout(!logout)}>

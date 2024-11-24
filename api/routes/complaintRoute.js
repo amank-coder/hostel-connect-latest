@@ -144,5 +144,6 @@ const complaintController = require('../controller/complaintController')
 router.post('/complaint', userAuth, complaintController.createComplaint)
 router.get('/complaint' ,userAuth, complaintController.getComplaints) 
 router.patch('/complaint/:id', userAuth, isAdmin, complaintController.updateStatus)
+router.post('/send-email', userAuth, isAdmin, complaintController.sendEmail)
 
 module.exports= router
